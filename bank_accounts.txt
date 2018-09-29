@@ -1,0 +1,5 @@
+Dom: 557 
+Lex: 613 
+Dan: -606 
+Henry: 689 
+Bill: 3 
