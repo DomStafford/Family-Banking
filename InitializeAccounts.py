@@ -1,5 +1,6 @@
 from BankAccount import BankAccount
 from random import randint
+
 path = 'bank_accounts.txt'
 
 Dom = BankAccount('Dom', randint(-1000, 1000))

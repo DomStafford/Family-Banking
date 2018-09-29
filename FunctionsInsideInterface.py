@@ -1,7 +1,7 @@
 SERVICE_MAPPING = {'1': 'show_balance',
-                  '2': 'deposit',
-                  '3': 'withdraw',
-                  '4': 'transfer'}
+                   '2': 'deposit',
+                   '3': 'withdraw',
+                   '4': 'transfer'}
 
 
 def interact(accounts):
@@ -10,8 +10,7 @@ def interact(accounts):
     account = _account_selection(account_names)
     account_index = account_names.index(account)
 
-    print('What would you like to do? \n 1. Check balance \n 2. Deposit \n '
-        '3. Withdraw \n 4. Transfer \n 5. Exit')
+    print('What would you like to do? \n 1. Check balance \n 2. Deposit \n 3. Withdraw \n 4. Transfer \n 5. Exit')
 
     service = _service_selection()
 
@@ -31,7 +30,6 @@ def interact(accounts):
             method(accounts[recipient_index], amount)
 
         additional_service = _additional_service()
-
         if additional_service == 'Y':
             interact(accounts)
         else:
@@ -42,7 +40,6 @@ def interact(accounts):
 
 def _service_selection():
     choice = raw_input()
-    print(choice)
     if choice not in ['1', '2', '3', '4', '5']:
         print('Please choose a number from 1 to 5.')
         choice = _service_selection()
