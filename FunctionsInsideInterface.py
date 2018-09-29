@@ -6,7 +6,7 @@ SERVICE_MAPPING = {'1': 'show_balance',
 
 def interact(accounts):
     account_names = [account.get_name() for account in accounts]
-    print('Welcome to the Family Banking App. Who is this?\n')
+    print('Welcome to the Family Banking App. Who is this?')
     account = _account_selection(account_names)
     account_index = account_names.index(account)
 
