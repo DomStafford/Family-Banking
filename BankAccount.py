@@ -5,7 +5,7 @@ class BankAccount(object):
         self._balance = balance
 
     def __repr__(self):
-        return 'This account belongs to %s and contains %2d \n' % (self._name, self._balance)
+        return 'This account belongs to %s and contains %2d. \n' % (self._name, self._balance)
 
     def get_name(self):
         return self._name
@@ -14,18 +14,18 @@ class BankAccount(object):
         return self._balance
 
     def show_balance(self):
-        print('%s\'s balance is now %2d ' % (self._name, self._balance))
+        print('%s\'s balance is now %2d. ' % (self._name, self._balance))
 
     def deposit(self, amount):
         if float(amount) < 0:
-            print('You cannot deposit a negative amount')
+            print('You cannot deposit a negative amount.')
         else:
             self._balance += float(amount)
             self.show_balance()
 
     def withdraw(self, amount):
         if float(amount) < 0:
-            print('You cannot withdraw a negative amount')
+            print('You cannot withdraw a negative amount.')
         else:
             self._balance -= float(amount)
             self.show_balance()
