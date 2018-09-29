@@ -1,2 +1,2 @@
 # Family-Banking
-First attempt at building classes. Project suggested by a friend. The goal is to be able to read all accounts on the disk when it is opened, then save all changes when we exit again. When accessed, it should permit things like checking balances, transferring money etc.
+Project suggested by a friend as a means of practicing building a python project/classes from scratch. The goal is to be able to do simple banking functions like withdrawing, transferring, checking balance etc.
