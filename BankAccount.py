@@ -14,7 +14,7 @@ class BankAccount(object):
         return self._balance
 
     def show_balance(self):
-        print('%s\'s balance is now %2d. ' % (self._name, self._balance))
+        print('%s\'s balance is now %2d. ' % (self._name, float(self._balance)))
 
     def deposit(self, amount):
         if float(amount) < 0:

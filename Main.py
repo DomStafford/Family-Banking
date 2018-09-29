@@ -13,5 +13,5 @@ print('Thank you for using the app. Updating all balances.')
 
 with open(path, 'w') as f:
     for person in accounts:
-        f.write('%s: %d \n' % (person.get_name(), person.get_balance()))
+        f.write('%s: %d \n' % (person.get_name(), float(person.get_balance())))
     f.close()

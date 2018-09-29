@@ -1,3 +1,5 @@
+from BankAccount import BankAccount
+
 SERVICE_MAPPING = {'1': 'show_balance',
                    '2': 'deposit',
                    '3': 'withdraw',
@@ -7,7 +9,7 @@ SERVICE_MAPPING = {'1': 'show_balance',
 def interact(accounts):
     account_names = [account.get_name() for account in accounts]
     print('Welcome to the Family Banking App. Who is this?')
-    account = _account_selection(account_names)
+    account = _account_selection(account_names, accounts)
     account_index = account_names.index(account)
 
     print('What would you like to do? \n 1. Check balance \n 2. Deposit \n 3. Withdraw \n 4. Transfer \n 5. Exit')
@@ -46,12 +48,23 @@ def _service_selection():
     return choice
 
 
-def _account_selection(account_names):
+def _account_selection(account_names, accounts):
     choice = raw_input()
     if choice not in account_names:
         print('This person does not have an account. The people with accounts are: ' + ', '.join(account_names) + '.')
-        print('Try again. Who is this?')
-        choice = _account_selection(account_names)
+        new_account = None
+        while new_account is None:
+            new_account = raw_input('Do you wish to make an account for ' + choice + '? (Y/N)')
+            if new_account not in ['Y', 'N']:
+                new_account = None
+        if new_account == 'Y':
+            amount_to_deposit = raw_input('How much would you like to deposit in this (' + choice + '\'s) account?')
+            accounts.append(BankAccount(choice, amount_to_deposit))
+            account_names.append(choice)
+            return choice
+        else:
+            print('Try again, then. Who is this?')
+            choice = _account_selection(account_names, accounts)
     return choice
 
 
