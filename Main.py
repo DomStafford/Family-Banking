@@ -6,7 +6,7 @@ accounts = []
 with open(path, 'r') as f:
     for line in f:
         separated_line = line.split(':')
-        accounts.append(BankAccount(separated_line[0], int(separated_line[1])))
+        accounts.append(BankAccount(separated_line[0], float(separated_line[1])))
 
 interact(accounts)
 print('Thank you for using the app. Updating all balances.')
