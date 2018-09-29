@@ -31,5 +31,8 @@ class BankAccount(object):
             self.show_balance()
 
     def transfer(self, recipient, amount):
-        self._balance -= float(amount)
-        recipient._balance += float(amount)
+        if float(amount) < 0:
+            print('You cannot transfer a negative amount - ask ' + recipient.get_name() + ' to pay you.')
+        else:
+            self._balance -= float(amount)
+            recipient._balance += float(amount)

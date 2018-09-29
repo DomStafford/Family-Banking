@@ -25,22 +25,12 @@ def interact(accounts):
             method(amount)
 
         if service == '4':
-            recipient = None
-            while recipient is None:
-                recipient = raw_input('Who would you like to pay?')
-                if recipient not in account_names:
-                    print('This person does not have an account here.')
-                    recipient = None
+            recipient = _get_recipient(account_names)
             recipient_index = account_names.index(recipient)
             amount = raw_input('How much would you like to pay ' + recipient + '?')
             method(accounts[recipient_index], amount)
 
-        additional_service = None
-        while additional_service is None:
-            additional_service = raw_input('Service completed. Is another service required? (Y/N)')
-            if additional_service not in ['Y', 'N']:
-                print('Not a valid input. Try again.')
-                additional_service = None
+        additional_service = _additional_service()
 
         if additional_service == 'Y':
             interact(accounts)
@@ -68,3 +58,21 @@ def _account_selection(account_names):
     return choice
 
 
+def _get_recipient(account_names):
+    recipient = None
+    while recipient is None:
+        recipient = raw_input('Who would you like to pay?')
+        if recipient not in account_names:
+            print('This person does not have an account here.')
+            recipient = None
+    return recipient
+
+
+def _additional_service():
+    additional_service = None
+    while additional_service is None:
+        additional_service = raw_input('Service completed. Is another service required? (Y/N)')
+        if additional_service not in ['Y', 'N']:
+            print('Not a valid input. Try again.')
+            additional_service = None
+    return additional_service
